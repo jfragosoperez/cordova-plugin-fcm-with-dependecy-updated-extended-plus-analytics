@@ -37,6 +37,23 @@ static FCMPlugin *fcmPluginInstance;
     
 }
 
+// GET ID //
+- (void)getId:(CDVInvokedUrlCommand *)command {
+    __block CDVPluginResult *pluginResult;
+
+    FIRInstanceIDHandler handler = ^(NSString *_Nullable instID, NSError *_Nullable error) {
+        if (error) {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+        } else {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:instID];
+        }
+
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    };
+
+    [[FIRInstanceID instanceID] getIDWithHandler:handler];
+}
+
 // GET TOKEN //
 - (void) getToken:(CDVInvokedUrlCommand *)command 
 {
