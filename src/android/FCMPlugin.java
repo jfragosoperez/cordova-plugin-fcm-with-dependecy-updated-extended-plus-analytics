@@ -54,7 +54,7 @@ public class FCMPlugin extends CordovaPlugin {
 						try{
 							String id = FirebaseInstanceId.getInstance().getId();
 							callbackContext.success(id);
-							Log.d(TAG,"\Instance id: "+ id);
+							Log.d(TAG,"\tInstance id: "+ id);
 						} catch(Exception e){
 							Log.d(TAG,"\tError retrieving instance id");
 						}
