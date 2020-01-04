@@ -64,6 +64,16 @@ FCMPlugin.getToken(function(token){
 });
 ```
 
+#### Get id
+
+```javascript
+//FCMPlugin.getId( successCallback(id), errorCallback(err) );
+//Returns a stable identifier that uniquely identifies the app instance.
+FCMPlugin.getId(function(id){
+    alert(id);
+});
+```
+
 #### Subscribe to topic
 
 ```javascript

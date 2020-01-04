@@ -47,6 +47,20 @@ public class FCMPlugin extends CordovaPlugin {
 				//
 				callbackContext.success();
 			}
+			// GET INSTANCE ID //
+			else if (action.equals("getId")) {
+				cordova.getActivity().runOnUiThread(new Runnable() {
+					public void run() {
+						try{
+							String id = FirebaseInstanceId.getInstance().getId();
+							callbackContext.success(id);
+							Log.d(TAG,"\Instance id: "+ id);
+						} catch(Exception e){
+							Log.d(TAG,"\tError retrieving instance id");
+						}
+					}
+				});
+			}
 			// GET TOKEN //
 			else if (action.equals("getToken")) {
 				cordova.getActivity().runOnUiThread(new Runnable() {

@@ -25,6 +25,10 @@ FCMPlugin.prototype.onTokenRefresh = function( callback ){
 FCMPlugin.prototype.getToken = function( success, error ){
 	exec(success, error, "FCMPlugin", 'getToken', []);
 }
+// GET ID //
+FCMPlugin.prototype.getId = function(success, error) {
+  exec(success, error, "FCMPlugin", "getId", []);
+};
 
 // DEFAULT NOTIFICATION CALLBACK //
 FCMPlugin.prototype.onNotificationReceived = function(payload){
