@@ -74,6 +74,18 @@ FCMPlugin.getId(function(id){
 });
 ```
 
+#### Delete instance id
+
+```javascript
+//FCMPlugin.deleteInstanceId( successCallback(void), errorCallback(err) );
+//Delete the Instance ID and the data associated with it.
+FCMPlugin.deleteInstanceId(function(){
+    alert('deleted');
+}, function(err) {
+    alert(err);
+});
+```
+
 #### Subscribe to topic
 
 ```javascript

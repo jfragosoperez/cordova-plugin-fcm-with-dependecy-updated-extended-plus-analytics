@@ -29,6 +29,10 @@ FCMPlugin.prototype.getToken = function( success, error ){
 FCMPlugin.prototype.getId = function(success, error) {
   exec(success, error, "FCMPlugin", "getId", []);
 };
+// DELETE INSTANCE ID //
+FCMPlugin.prototype.deleteInstanceId = function(success, error) {
+  exec(success, error, "FCMPlugin", "deleteInstanceId", []);
+};
 
 // DEFAULT NOTIFICATION CALLBACK //
 FCMPlugin.prototype.onNotificationReceived = function(payload){

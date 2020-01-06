@@ -39,6 +39,7 @@ static FCMPlugin *fcmPluginInstance;
 
 // GET ID //
 - (void)getId:(CDVInvokedUrlCommand *)command {
+    NSLog(@"get Id");
     __block CDVPluginResult *pluginResult;
 
     FIRInstanceIDHandler handler = ^(NSString *_Nullable instID, NSError *_Nullable error) {
@@ -52,6 +53,26 @@ static FCMPlugin *fcmPluginInstance;
     };
 
     [[FIRInstanceID instanceID] getIDWithHandler:handler];
+}
+
+// DELETE INSTANCE ID //
+- (void)deleteInstanceId:(CDVInvokedUrlCommand *)command {
+    NSLog(@"delete instance Id");
+    __block CDVPluginResult *pluginResult;
+
+    [self.commandDelegate runInBackground:^{
+        @try {
+            [FCMPlugin.fcmPlugin deleteInstanceId];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@", exception.reason);
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+        }
+        @finally {
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        }
+    }];
 }
 
 // GET TOKEN //

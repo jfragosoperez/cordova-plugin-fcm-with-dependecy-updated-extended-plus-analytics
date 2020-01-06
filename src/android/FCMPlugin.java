@@ -61,6 +61,21 @@ public class FCMPlugin extends CordovaPlugin {
 					}
 				});
 			}
+			// DELETE INSTANCE ID //
+			else if (action.equals("deleteInstanceId")) {
+				cordova.getActivity().runOnUiThread(new Runnable() {
+					public void run() {
+						try{
+							FirebaseInstanceId.getInstance().deleteInstanceId();
+							callbackContext.success();
+							Log.d(TAG,"\tInstance id deleted");
+						} catch(Exception e){
+							Log.d(TAG,"\tError deleting instance id");
+							callbackContext.error(e.getMessage());
+						}
+					}
+				});
+			}
 			// GET TOKEN //
 			else if (action.equals("getToken")) {
 				cordova.getActivity().runOnUiThread(new Runnable() {
