@@ -63,7 +63,7 @@ public class FCMPlugin extends CordovaPlugin {
 			}
 			// DELETE INSTANCE ID //
 			else if (action.equals("deleteInstanceId")) {
-				cordova.getActivity().runOnUiThread(new Runnable() {
+				cordova.getThreadPool().execute(new Runnable() {
 					public void run() {
 						try{
 							FirebaseInstanceId.getInstance().deleteInstanceId();
