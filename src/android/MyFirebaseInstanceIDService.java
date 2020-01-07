@@ -22,13 +22,4 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
         // TODO: Implement this method to send any registration to your app's servers.
         //sendRegistrationToServer(refreshedToken);
     }
-
-    @Override
-    public void onNewToken(String refreshedToken){
-        Log.d(TAG, "Refreshed token: " + refreshedToken);
-		FCMPlugin.sendTokenRefresh( refreshedToken );
-
-        // TODO: Implement this method to send any registration to your app's servers.
-        //sendRegistrationToServer(refreshedToken);
-    }
 }
