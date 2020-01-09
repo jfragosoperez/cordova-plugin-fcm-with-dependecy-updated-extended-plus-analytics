@@ -60,19 +60,17 @@ static FCMPlugin *fcmPluginInstance;
     NSLog(@"delete instance Id");
     __block CDVPluginResult *pluginResult;
 
-    [self.commandDelegate runInBackground:^{
-        @try {
-            [FCMPlugin.fcmPlugin deleteInstanceId];
+    FIRInstanceIDDeleteHandler handler = ^(NSError *_Nullable error) {
+        if (error) {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+        } else {
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         }
-        @catch (NSException *exception) {
-            NSLog(@"%@", exception.reason);
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-        }
-        @finally {
-            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-        }
-    }];
+
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    };
+
+    [[FIRInstanceID instanceID] deleteIDWithHandler:handler];
 }
 
 // GET TOKEN //
