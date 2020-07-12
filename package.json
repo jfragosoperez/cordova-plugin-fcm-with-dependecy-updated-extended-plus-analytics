@@ -1,15 +1,15 @@
 {
-  "version": "2.5.9-extended",
-  "name": "cordova-plugin-fcm-with-dependecy-updated-extended",
+  "version": "0.0.1",
+  "name": "cordova-plugin-fcm-with-dependecy-updated-plus-analytics",
   "cordova_name": "Cordova FCM Push Plugin",
-  "description": "Google Firebase Cloud Messaging Cordova Push Plugin fork with dependecy updated",
+  "description": "Google Firebase Cloud Messaging Cordova Push Plugin fork with dependecy updated & analytics",
   "license": "MIT",
   "repo": "",
   "issue": "",
-  "author": "André Augusto Tissot",
+  "author": "Jonathan Fragoso Pérez",
   "repository": {
     "type": "git",
-    "url": "https://github.com/andrehtissot/cordova-plugin-fcm-with-dependecy-updated-extended"
+    "url": "https://github.com/jfragosoperez/cordova-plugin-fcm-with-dependecy-updated-plus-analytics"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -19,6 +19,7 @@
     "push",
     "firebase",
     "fcm",
+    "analytics",
     "ios",
     "android",
     "cordova"
