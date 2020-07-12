@@ -1,6 +1,6 @@
 {
-  "version": "0.0.1",
-  "name": "cordova-plugin-fcm-with-dependecy-updated-plus-analytics",
+  "version": "0.0.2",
+  "name": "cordova-plugin-fcm-with-dependecy-updated-extended-plus-analytics",
   "cordova_name": "Cordova FCM Push Plugin",
   "description": "Google Firebase Cloud Messaging Cordova Push Plugin fork with dependecy updated & analytics",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "author": "Jonathan Fragoso Pérez",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jfragosoperez/cordova-plugin-fcm-with-dependecy-updated-plus-analytics"
+    "url": "https://github.com/jfragosoperez/cordova-plugin-fcm-with-dependecy-updated-extended-plus-analytics"
   },
   "keywords": [
     "ecosystem:cordova",
