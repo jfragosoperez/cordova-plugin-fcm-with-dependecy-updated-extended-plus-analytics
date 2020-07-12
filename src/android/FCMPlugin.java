@@ -1,5 +1,8 @@
 package com.gae.scaffolder.plugin;
 
+import android.content.Context;
+import android.os.Bundle;
+
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -17,6 +20,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.Map;
+import java.util.Iterator;
 
 public class FCMPlugin extends CordovaPlugin {
 
@@ -38,7 +42,7 @@ public class FCMPlugin extends CordovaPlugin {
 		Log.d(TAG, "==> FCMPlugin initialize");
 		// ANALYTICS
 		Context context = cordova.getActivity().getApplicationContext();
-		this.firebaseAnalytics = FirebaseAnalytics.getInstance(context);
+		firebaseAnalytics = FirebaseAnalytics.getInstance(context);
 
 		FirebaseMessaging.getInstance().subscribeToTopic("android");
 		FirebaseMessaging.getInstance().subscribeToTopic("all");
@@ -159,7 +163,7 @@ public class FCMPlugin extends CordovaPlugin {
 								}
 							}
 
-							this.firebaseAnalytics.logEvent(name, bundle);
+							firebaseAnalytics.logEvent(name, bundle);
 
 							callbackContext.success();
 						} catch (Exception e) {
@@ -171,7 +175,7 @@ public class FCMPlugin extends CordovaPlugin {
 				cordova.getThreadPool().execute(new Runnable() {
 					public void run() {
 						try {
-							this.firebaseAnalytics.setUserId(args.getString(0));
+							firebaseAnalytics.setUserId(args.getString(0));
 							callbackContext.success();
 						} catch (Exception e) {
 							callbackContext.error(e.getMessage());
@@ -182,7 +186,7 @@ public class FCMPlugin extends CordovaPlugin {
 				cordova.getThreadPool().execute(new Runnable() {
 					public void run() {
 						try {
-							this.firebaseAnalytics.setUserProperty(args.getString(0), args.getString(1));
+							firebaseAnalytics.setUserProperty(args.getString(0), args.getString(1));
 							callbackContext.success();
 						} catch (Exception e) {
 							callbackContext.error(e.getMessage());
@@ -193,7 +197,7 @@ public class FCMPlugin extends CordovaPlugin {
 				cordova.getThreadPool().execute(new Runnable() {
 					public void run() {
 						try {
-							this.firebaseAnalytics.resetAnalyticsData();
+							firebaseAnalytics.resetAnalyticsData();
 							callbackContext.success();
 						} catch (Exception e) {
 							callbackContext.error(e.getMessage());
@@ -204,7 +208,7 @@ public class FCMPlugin extends CordovaPlugin {
 				cordova.getThreadPool().execute(new Runnable() {
 					public void run() {
 						try {
-							this.firebaseAnalytics.setAnalyticsCollectionEnabled(args.getBoolean(0));
+							firebaseAnalytics.setAnalyticsCollectionEnabled(args.getBoolean(0));
 							callbackContext.success();
 						} catch (Exception e) {
 							callbackContext.error(e.getMessage());
