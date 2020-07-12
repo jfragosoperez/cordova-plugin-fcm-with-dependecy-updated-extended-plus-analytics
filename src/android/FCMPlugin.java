@@ -142,7 +142,7 @@ public class FCMPlugin extends CordovaPlugin {
 					public void run() {
 						try {
 							final String name = args.getString(0);
-							final Map<String, Object> params = (Map<String, Object>) args.get(1);
+							final JSONObject params = args.getJSONObject(1);
 							Bundle bundle = new Bundle();
 							Iterator<String> it = params.keys();
 
@@ -187,17 +187,6 @@ public class FCMPlugin extends CordovaPlugin {
 					public void run() {
 						try {
 							firebaseAnalytics.setUserProperty(args.getString(0), args.getString(1));
-							callbackContext.success();
-						} catch (Exception e) {
-							callbackContext.error(e.getMessage());
-						}
-					}
-				});
-			} else if (action.equals("resetAnalyticsData")) {
-				cordova.getThreadPool().execute(new Runnable() {
-					public void run() {
-						try {
-							firebaseAnalytics.resetAnalyticsData();
 							callbackContext.success();
 						} catch (Exception e) {
 							callbackContext.error(e.getMessage());

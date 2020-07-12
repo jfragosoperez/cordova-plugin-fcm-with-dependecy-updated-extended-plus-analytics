@@ -54,9 +54,6 @@ FCMPlugin.prototype.setUserId = function (userId, success, error) {
 FCMPlugin.prototype.setUserProperty = function (name, value, success, error) {
 	exec(success, error, "FCMPlugin", "setUserProperty", [name, value]);
 }
-FCMPlugin.prototype.resetAnalyticsData = function (success, error) {
-	exec(success, error, "FCMPlugin", "resetAnalyticsData", []);
-}
 FCMPlugin.prototype.setEnabled = function (enabled, success, error) {
 	exec(success, error, "FCMPlugin", "setEnabled", [enabled]);
 }
