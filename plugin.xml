@@ -17,7 +17,7 @@
   specific language governing permissions and limitations
   under the License.
 -->
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-fcm-with-dependecy-updated-extended-plus-analytics" version="0.0.6">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-fcm-with-dependecy-updated-extended-plus-analytics" version="0.0.7">
 	<name>Cordova FCM Push Plugin</name>
 	<description>Google Firebase Cloud Messaging Cordova Push Plugin fork with dependecy updated</description>
 	<license>MIT</license>
@@ -50,13 +50,13 @@
 					<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
 				</intent-filter>
 			</service>
+			<uses-permission android:name="android.permission.WAKE_LOCK" />
 		</config-file>
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="FCMPlugin">
 				<param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin"/>
 				<param name="onload" value="true" />
 			</feature>
-			<uses-permission android:name="android.permission.WAKE_LOCK" />
 		</config-file>
 
 		<framework src="com.google.firebase:firebase-core:10.+" />
