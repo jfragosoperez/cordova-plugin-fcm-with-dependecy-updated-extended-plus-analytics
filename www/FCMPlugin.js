@@ -54,12 +54,6 @@ FCMPlugin.prototype.setUserId = function (userId, success, error) {
 FCMPlugin.prototype.setUserProperty = function (name, value, success, error) {
 	exec(success, error, "FCMPlugin", "setUserProperty", [name, value]);
 }
-FCMPlugin.prototype.setEnabled = function (enabled, success, error) {
-	exec(success, error, "FCMPlugin", "setEnabled", [enabled]);
-}
-FCMPlugin.prototype.setCurrentScreen = function (name, success, error) {
-	exec(success, error, "FCMPlugin", "setCurrentScreen", [name]);
-}
 // FIRE READY //
 exec(function (result) { console.log("FCMPlugin Ready OK") }, function (result) { console.log("FCMPlugin Ready ERROR") }, "FCMPlugin", 'ready', []);
 
