@@ -189,7 +189,7 @@ static FCMPlugin *fcmPluginInstance;
 - (void)setCurrentScreen:(CDVInvokedUrlCommand *)command {
     NSString* screenName = [command.arguments objectAtIndex:0];
 
-    [FIRAnalytics setScreenName:screenName screenClass:nil];
+    // [FIRAnalytics setScreenName:screenName screenClass:nil];
 
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
