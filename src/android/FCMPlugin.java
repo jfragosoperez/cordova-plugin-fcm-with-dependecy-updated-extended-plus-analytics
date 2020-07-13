@@ -193,6 +193,17 @@ public class FCMPlugin extends CordovaPlugin {
 						}
 					}
 				});
+			} else if (action.equals("setCurrentScreen")) {
+				cordova.getActivity().runOnUiThread(new Runnable() {
+					public void run() {
+						try {
+							firebaseAnalytics.setCurrentScreen(cordova.getActivity(), args.getString(0), null);
+							callbackContext.success();
+						} catch (Exception e) {
+							callbackContext.error(e.getMessage());
+						}
+					}
+				});
 			} else {
 				callbackContext.error("Method not found");
 				return false;
