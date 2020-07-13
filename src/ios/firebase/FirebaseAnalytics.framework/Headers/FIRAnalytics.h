@@ -68,6 +68,7 @@
 ///     non-empty and no more than 36 characters long. Setting userID to nil removes the user ID.
 + (void)setUserID:(nullable NSString *)userID;
 
-+ (void)setScreenName:(nonnull NSString *)name screenClass:(nullable NSString *)name;
++ (void)setScreenName:(nullable NSString *)screenName
+          screenClass:(nullable NSString *)screenClassOverride;
 
 @end
